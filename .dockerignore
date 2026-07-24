@@ -1,0 +1,38 @@
+# Reduce el contexto de build y evita hornear datos/secretos en la imagen.
+
+# Secretos: se pasan como variables de entorno / secrets en runtime, NUNCA
+# dentro de la imagen (ver README, sección Despliegue).
+.env
+.env.example
+
+# Base vectorial: se monta como volumen para poder respaldarla y actualizarla
+# sin reconstruir la imagen. El contenedor la crea vacía si no existe.
+db_vectorial/
+
+# Fotos del catálogo: sólo las usa el script de alta de inventario, que se
+# ejecuta como paso de setup con las fotos montadas, no en runtime.
+fotos_catalogo/
+
+# Entorno virtual local (es de Windows: inservible en la imagen Linux)
+venv/
+.venv/
+
+# Artefactos de Python
+__pycache__/
+*.pyc
+
+# Historial y herramientas de desarrollo
+.git/
+.gitignore
+.gitattributes
+.vscode/
+.claude/
+
+# Datos de entrenamiento y salidas: el servicio no los usa en runtime
+dataset_yolo/
+runs/
+tests_output/
+tests/
+*.pt
+
+*.log

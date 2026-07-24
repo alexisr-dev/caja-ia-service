@@ -1,0 +1,35 @@
+# Versiones fijadas a las verificadas en el entorno de desarrollo.
+# Para regenerar tras validar una actualización:  pip freeze
+#
+# Nota GPU: torch/torchvision se fijan a su versión base (sin sufijo +cuXXX)
+# para que resuelvan en una imagen CPU. Para desplegar con GPU, instalar las
+# ruedas CUDA desde el índice de PyTorch, p. ej.:
+#   pip install torch==2.6.0 torchvision==0.21.0 \
+#       --index-url https://download.pytorch.org/whl/cu124
+
+# ── Web ──────────────────────────────────────────────────────────────────────
+fastapi==0.136.1
+uvicorn[standard]==0.46.0
+python-multipart==0.0.26
+python-dotenv==1.2.2
+pydantic==2.13.3
+pydantic-settings==2.14.0
+
+# ── IA ───────────────────────────────────────────────────────────────────────
+ultralytics==8.4.41
+torch==2.6.0
+torchvision==0.21.0
+onnxruntime==1.23.2
+chromadb==1.5.8
+Pillow==12.2.0
+numpy==2.2.6
+
+# CLIP: extractor de vectores (service/reconocedor.py). No está en PyPI.
+# Requiere `git` en la imagen (ver Dockerfile).
+# IMPORTANTE: fijado a un commit concreto por reproducibilidad y cadena de
+# suministro. VERIFICAR/actualizar este SHA contra el entorno validado antes
+# de desplegar (no fue posible derivarlo del venv de desarrollo).
+clip @ git+https://github.com/openai/CLIP.git@a1d071733d7111c9c014f024669f959182114e33
+
+# ── Diagnóstico con cámara (scripts/test_camara*.py) ─────────────────────────
+opencv-python==4.13.0.92

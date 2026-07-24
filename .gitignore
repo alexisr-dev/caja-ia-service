@@ -1,0 +1,26 @@
+__pycache__/
+*.pyc
+venv/
+.env
+db_vectorial/
+dataset_yolo/
+
+# Pesos de YOLO: binarios grandes, no deben versionarse en git plano.
+# models_ia/best.onnx queda fuera de esta regla a propósito: es el artefacto
+# que necesita el despliegue (ver recomendaciones sobre Git LFS / registry).
+*.pt
+models_ia/*.pt
+
+# Salidas de entrenamiento y de los scripts de diagnóstico
+runs/
+tests_output/
+
+fotos_catalogo/*.jpg
+fotos_catalogo/*.png
+!fotos_catalogo/.gitkeep
+
+# Herramientas de desarrollo locales
+.vscode/
+.claude/
+
+*.log

@@ -1,0 +1,5 @@
+# Dependencias sólo de desarrollo/CI. No instalar en la imagen de producción.
+-r requirements.txt
+
+pytest>=8.0.0
+httpx>=0.27.0          # requerido por fastapi.testclient
