@@ -23,6 +23,7 @@ __pycache__/
 
 # Historial y herramientas de desarrollo
 .git/
+.github/
 .gitignore
 .gitattributes
 .vscode/
